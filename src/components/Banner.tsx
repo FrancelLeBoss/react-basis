@@ -1,11 +1,11 @@
 import React from 'react'
-import Ban from "../assets/banner.jpg"
+//import Ban from "../assets/banner.jpg"
 
 const Banner = () => {
     return (
         <div className="`h-[32rem]` bg-cover bg-center "
             style={{
-                backgroundImage: `url(${Ban})`,
+                backgroundImage: `url("./banner.jpg")`,
                 // background: "rgba(253, 120, 43, 0.69)",
                 // position: "absolute",
                 // borderRadius: "50%",

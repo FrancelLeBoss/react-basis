@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function SortMenu({ onClickCallback }) {
+interface props {
+    onClickCallback: any
+}
+export default function SortMenu({ onClickCallback }: props) {
     return (
         <>
             <div className='border divide-y flex flex-col'>

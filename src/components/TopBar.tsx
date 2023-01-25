@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faClock, } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
-const TopBar = ({ light }) => {
+interface props {
+    light: boolean
+}
+
+const TopBar = ({ light }: props) => {
     return (
         <div className={light ? 'font-sans border-b border-blue-900 text-blue-900 flex justify-between px-16 py-3' :
             'bg-blue-900 font-sans text-white flex justify-between px-16 py-3'}>

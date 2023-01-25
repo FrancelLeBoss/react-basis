@@ -3,7 +3,7 @@ import Menu from './Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faFaceAngry } from '@fortawesome/free-solid-svg-icons'
-import Logo from "../assets/logo.png"
+//import Logo from "../assets/logo.png"
 import { Link } from 'react-router-dom';
 import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons"
 
@@ -30,7 +30,7 @@ const Footer = () => {
                     <div><Link
                         to='/'
                     >
-                        <img src={Logo} alt="" className='cursor-pointer w-24 h-24' />
+                        <img src="./logo.png" alt="" className='cursor-pointer w-24 h-24' />
                     </Link></div>
                     <div className='flex gap-2'>
                         <FontAwesomeIcon icon={faFacebookF} className="text-white rounded border px-2 py-1 cursor-pointer" />

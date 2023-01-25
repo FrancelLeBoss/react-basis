@@ -4,7 +4,7 @@ import Title from '../components/Title'
 import TopBar from '../components/TopBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone, faMapMarked, faClock } from '@fortawesome/free-solid-svg-icons'
-import boat from "../assets/baot.jpg"
+//import boat from "../assets/baot.jpg"
 import Footer from '../components/Footer'
 
 const Contact = () => {
@@ -145,7 +145,7 @@ const Contact = () => {
                 </div>
                 <div className='flex-1 h-[33rem] bg-center text-transparent'
                     style={{
-                        backgroundImage: `url(${boat})`
+                        backgroundImage: `url("./baot.jpg")`
                     }}></div>
             </div>
             <Footer />

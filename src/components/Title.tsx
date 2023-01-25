@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Title = ({ page }) => {
+interface props {
+    page: string
+}
+const Title = ({ page }: props) => {
     return (
         <div className='flex flex-col gap-4 text-center bg-blue-900 text-white capitalize py-24'>
             <div className='font-semibold text-3xl font-serif'>{page}</div>

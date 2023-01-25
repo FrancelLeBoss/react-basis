@@ -1,6 +1,23 @@
 import React from 'react'
 
-const CardV = ({ voiture, orientation }) => {
+interface voiture {
+    id: number;
+    title: string;
+    electric: boolean;
+    automatic: boolean;
+    color: string;
+    price: number;
+    power: number;
+    img: string;
+    acceleration: string;
+    desc: string;
+}
+
+interface props {
+    voiture: voiture
+}
+
+const CardV = ({ voiture }: props) => {
     return (
         <div className='relative'>
             <div className='flex p-24 flex-col gap-3 items-center justify-center absolute top-0 left-0 transition delay-150 duration-300 bg-blue-900 w-full h-auto opacity-0 hover:opacity-80'>

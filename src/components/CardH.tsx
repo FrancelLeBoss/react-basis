@@ -1,6 +1,23 @@
 import React from 'react'
 
-const CardH = ({ voiture }) => {
+interface voiture {
+    id: number;
+    title: string;
+    electric: boolean;
+    automatic: boolean;
+    color: string;
+    price: number;
+    power: number;
+    img: string;
+    acceleration: string;
+    desc: string;
+}
+
+interface props {
+    voiture: voiture
+}
+
+const CardH = ({ voiture }: props) => {
     return (
         <div className='relative'>
             <div className="grid grid-cols-3 shadow bg-green-700">

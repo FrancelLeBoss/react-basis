@@ -5,13 +5,9 @@ import Title from '../components/Title'
 import TopBar from '../components/TopBar'
 import Menu2 from '../components/Menu2'
 import SortMenu from '../components/SortMenu'
-import { useOnHoverOutside } from "./../hooks/useOnHoverOutside";
+import { useOnHoverOutside } from "../hooks/useOnHoverOutside";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown, faArrowUp, faColumns, faList, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import Audi from "../assets/audi.png"
-import Bmw from "../assets/bmw.png"
-import Mercedes from "../assets/Mercedes.png"
-import Volw from "../assets/volw.png"
 import Card from '../components/Card'
 import ReactPaginate from 'react-paginate'
 //import axios from "axios";
@@ -26,6 +22,29 @@ import ReactPaginate from 'react-paginate'
 //     }
 // };
 
+interface color {
+    color: string
+    total: number
+}
+interface structuredData {
+    color: string,
+    data: any[],
+    length: number
+}
+
+interface voiture {
+    id: number;
+    title: string;
+    electric: boolean;
+    automatic: boolean;
+    color: string;
+    price: number;
+    power: number;
+    img: string;
+    acceleration: string;
+    desc: string;
+}
+
 const Products = () => {
 
 
@@ -34,7 +53,7 @@ const Products = () => {
     const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
     const [isMenuDropDownOpen2, setMenuDropDownOpen2] = useState(false);
     //Grid's orientation, we have V for vertical cards and H for horizontal cards, then for lists
-    const [orientation, setOrientation] = useState("V");
+    const [orientation, setOrientation] = useState<"V" | "H">("V");
     const [ascendingSort, setAscendingSort] = useState(true);
     const [sortingCriteria, setSortingCriteria] = useState('id')
     const [textTri, setTextTri] = useState('Default')
@@ -50,7 +69,7 @@ const Products = () => {
             color: "black",
             price: 42800,
             power: 358,
-            img: Audi,
+            img: "/audi.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -62,7 +81,7 @@ const Products = () => {
             color: "white",
             price: 50000,
             power: 514,
-            img: Bmw,
+            img: "/bmw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -75,7 +94,7 @@ const Products = () => {
             color: "gray",
             price: 20000,
             power: 189,
-            img: Mercedes,
+            img: "/Mercedes.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
 
@@ -88,7 +107,7 @@ const Products = () => {
             color: "black",
             price: 42800,
             power: 358,
-            img: Audi,
+            img: "/audi.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -100,7 +119,7 @@ const Products = () => {
             color: "red",
             price: 30000,
             power: 289,
-            img: Volw,
+            img: "/volw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -112,7 +131,7 @@ const Products = () => {
             color: "white",
             price: 50000,
             power: 514,
-            img: Bmw,
+            img: "/bmw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -124,7 +143,7 @@ const Products = () => {
             color: "gray",
             price: 20000,
             power: 189,
-            img: Mercedes,
+            img: "/Mercedes.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -136,12 +155,12 @@ const Products = () => {
             color: "red",
             price: 30000,
             power: 289,
-            img: Volw,
+            img: "/volw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         }
     ]
-    const [voituresFiltree, setVoituresFiltree] = useState([
+    const [voituresFiltree, setVoituresFiltree] = useState<voiture[]>([
         {
             id: 1,
             title: "Audi RS7",
@@ -150,7 +169,7 @@ const Products = () => {
             color: "black",
             price: 42800,
             power: 358,
-            img: Audi,
+            img: "/audi.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -162,7 +181,7 @@ const Products = () => {
             color: "white",
             price: 50000,
             power: 514,
-            img: Bmw,
+            img: "/bmw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -175,7 +194,7 @@ const Products = () => {
             color: "gray",
             price: 20000,
             power: 189,
-            img: Mercedes,
+            img: "/Mercedes.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
 
@@ -188,7 +207,7 @@ const Products = () => {
             color: "black",
             price: 42800,
             power: 358,
-            img: Audi,
+            img: "/audi.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -200,7 +219,7 @@ const Products = () => {
             color: "red",
             price: 30000,
             power: 289,
-            img: Volw,
+            img: "/volw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -212,7 +231,7 @@ const Products = () => {
             color: "white",
             price: 50000,
             power: 514,
-            img: Bmw,
+            img: "/bmw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -224,7 +243,7 @@ const Products = () => {
             color: "gray",
             price: 20000,
             power: 189,
-            img: Mercedes,
+            img: "/Mercedes.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         },
@@ -236,17 +255,17 @@ const Products = () => {
             color: "red",
             price: 30000,
             power: 289,
-            img: Volw,
+            img: "/volw.png",
             acceleration: "0-60 mph in just 3.1 seconds",
             desc: "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
         }
     ])
     // toutes les couleurs de voiture dispo avec leur total
-    const [colors, setColors] = useState([{ color: "black", total: 3 }, { color: "blue", total: 2 }, { color: "gray", total: 1 }, { color: "red", total: 2 }, { color: "white", total: 2 }])
-    const [filtreCouleurs, setFiltreCouleurs] = useState([])
+    const [colors, setColors] = useState<color[]>([{ color: "black", total: 3 }, { color: "blue", total: 2 }, { color: "gray", total: 1 }, { color: "red", total: 2 }, { color: "white", total: 2 }])
+    const [filtreCouleurs, setFiltreCouleurs] = useState<string[]>([])
     const [min, setMin] = useState(0)
     const [max, setMax] = useState(50000)
-    const [rangeValue, setRangeValue] = useState(min)
+    const [rangeValue, setRangeValue] = useState<number | any>(min)
     useEffect(() => {
         filterColor(filtreCouleurs)
         // axios.request(options).then(function (response) {
@@ -269,13 +288,13 @@ const Products = () => {
         setMenuDropDownOpen2(false);
     };
 
-    function paginer(datas, per_page) {
+    function paginer(datas: voiture[], per_page: number) {
 
         const endOffset = itemOffset + per_page;
         const currentItems = datas.sort(ascendingSorting).slice(itemOffset, endOffset);
         const pageCount = Math.ceil(datas.length / per_page);
 
-        const handlePageClick = (event) => {
+        const handlePageClick = (event: any) => {
             const newOffset = (event.selected * per_page) % datas.length;
             setItemOffset(newOffset);
         };
@@ -288,12 +307,13 @@ const Products = () => {
             <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
                 <ReactPaginate
                     previousLabel={
-                        <div className=" rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <div className=" rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20" >
                             <FontAwesomeIcon icon={faAngleLeft} className="" />
+                            {/* xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" */}
                         </div>
                     }
                     nextLabel={
-                        <div className=" rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <div className=" rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20" >
                             <FontAwesomeIcon icon={faAngleRight} className="" />
                         </div>
                     }
@@ -305,7 +325,6 @@ const Products = () => {
                     marginPagesDisplayed={2}
                     pageClassName={"relative z-10 inline-flex items-center border border-gray-300  px-4 py-2 text-sm font-medium text-indigo-500 focus:z-20"}
                     onPageChange={handlePageClick}
-                    renderOnZeroPageCount={null}
                     containerClassName={"relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"}
                     activeClassName={"relative z-10 inline-flex items-center border border-indigo-300 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-500 focus:z-20"}
                 />
@@ -317,11 +336,12 @@ const Products = () => {
 
     //on applique le filtre de couleurs
 
-    function filterColor(filtreCouleurs) {
-        let tout = []
-        let result = {}
-        let cols = []
-        voitures.forEach((item) => {
+    function filterColor(filtreCouleurs: any[]) {
+        let tout: structuredData[] = []
+        let result: any = {}
+        let cols: color[] = []
+
+        voitures.forEach((item: voiture) => {
             if (!result[item.color]) {
                 result[item.color] = [];
             }
@@ -340,7 +360,7 @@ const Products = () => {
         })
         setColors(cols)
         //console.log({ tout })
-        let v = []
+        let v: voiture[] = []
         if (filtreCouleurs.length > 0) {
             tout.map((a) => {
                 return filtreCouleurs.forEach((item) => {
@@ -373,7 +393,7 @@ const Products = () => {
             }}>x</span></div>)
     }
 
-    const sortPrice = (a, b) => {
+    const sortPrice = (a: voiture, b: voiture) => {
         if (a.price < b.price) {
             return -1;
         }
@@ -383,7 +403,7 @@ const Products = () => {
         return 0;
     }
 
-    function ascendingSorting(a, b) {
+    function ascendingSorting(a: any, b: any) {
         if (ascendingSort) {
             if (a[sortingCriteria] < b[sortingCriteria]) {
                 return -1;
@@ -403,11 +423,11 @@ const Products = () => {
             return 0;
         }
     }
-    const handleSort = (index, textTri) => {
+    const handleSort = (index: string, textTri: string) => {
         setSortingCriteria(index)
         setTextTri(textTri)
     };
-    const handlePage = (number) => {
+    const handlePage = (number: number) => {
         setSizePagination(number)
     };
     return (
@@ -428,7 +448,7 @@ const Products = () => {
                         {colors.map((c, index) => {
                             return <li key={index} onClick={
                                 () => {
-                                    let val = [...filtreCouleurs]
+                                    let val: string[] = [...filtreCouleurs]
                                     if (!val.includes(c.color)) {
                                         val.push(c.color)
                                     } else {
@@ -439,7 +459,7 @@ const Products = () => {
                                     setFiltreCouleurs(val)
                                 }
                             } className='flex gap-2 items-center justify-end cursor-pointer border-b pb-4 hover:text-blue-500'>
-                                <span className={`'basis-1/6 border p-4 rounded-lg max-h-12 max-w-12 ${filtreCouleurs.includes(c.color) ? "ring-1" : ""} bg-${c.color !== ("white" && "black") ? c.color : c.color === "white" ? "white " : "black "}-700`}></span>
+                                <span className={`'basis-1/6 border p-4 rounded-lg max-h-12 max-w-12 ${filtreCouleurs.includes(c.color) ? "ring-1" : ""} bg-${c.color !== ("white" && "black") ? c.color : c.color === "black" ? "black " : "white "}-700`}></span>
                                 <span className='basis-2/3 font-normal capitalize'>{c.color}</span>
                                 <span className='basis-1/6 text-blue-500'>({c.total})</span>
                             </li>
@@ -450,7 +470,6 @@ const Products = () => {
                         <input type="range" min={min} max={max}
                             onChange={e => setRangeValue(e.target.value)}
                             defaultValue={max} />
-                        {console.log({ rangeValue })}
                         <div className='flex gap-2 items-center text-base'><button className='p-2 text-white bg-red-700 hover:bg-blue-500 rounded'>ФИЛЬТР</button><span className='text-blue-500'>Цены: ${min}  - ${rangeValue}</span></div>
                     </div>
                 </div>

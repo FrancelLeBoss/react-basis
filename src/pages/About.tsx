@@ -3,8 +3,8 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Title from '../components/Title'
 import TopBar from '../components/TopBar'
-import FirstImg from "../assets/1.jpg"
-import SecondImg from "../assets/2.jpg"
+// import FirstImg from "../assets/1.jpg"
+// import SecondImg from "../assets/2.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDesktop, faRightLong, faLeftLong } from '@fortawesome/free-solid-svg-icons'
 import Partner from '../components/Partner'
@@ -28,8 +28,8 @@ const About = () => {
             <Title page={"О Компании"} />
             <div className='flex justify-between p-16 gap-12 pb-24 border border-b mb-4'>
                 <div className='flex-1 max-w-2xl flex flex-col gap-2 relative'>
-                    <img src={FirstImg} className={`${afficher1 === false ? "hidden" : ""}`} alt="" />
-                    <img src={SecondImg} className={`${afficher2 === false ? "hidden" : ""}`} alt="" />
+                    <img src="./1.jpg" className={`${afficher1 === false ? "hidden" : ""}`} alt="" />
+                    <img src="./2.jpg" className={`${afficher2 === false ? "hidden" : ""}`} alt="" />
                     <div className='absolute bottom-2 right-2 flex justify-between items-center gap-1' onClick={changer}>
                         <FontAwesomeIcon icon={faLeftLong} className="text-white bg-blue-400 p-2 rounded-2xl" size={"xs"} />
                         <FontAwesomeIcon icon={faRightLong} className="text-white bg-blue-400 p-2 rounded-2xl" size={"xs"} />

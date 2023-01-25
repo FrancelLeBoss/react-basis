@@ -5,16 +5,17 @@ import SearchBar from '../components/SearchBar'
 import TopBar from '../components/TopBar'
 import Bloc from '../components/Bloc'
 import Bloc2 from '../components/Bloc2'
+import Footer from '../components/Footer'
 // rafce pour avoir rapidement ce code
 const Home = () => {
     return (<div className='relative'>
-        <TopBar />
+        <TopBar light={false} />
         <Header />
         <Banner />
         <div className="absolute top-[40rem] right-60"><SearchBar /></div>
         <div className='bg-white pt-52'><Bloc /></div>
         <Bloc2 />
-
+        <Footer />
     </div>
     )
 }

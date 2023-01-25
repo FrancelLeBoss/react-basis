@@ -1,6 +1,8 @@
 import React from 'react'
-
-export default function Menu2({ onClickCallback }) {
+interface props {
+    onClickCallback: any
+}
+export default function Menu2({ onClickCallback }: props) {
     return (
         <>
             <div className='border divide-y flex flex-col'>
