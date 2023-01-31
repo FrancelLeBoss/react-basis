@@ -300,7 +300,7 @@ const Products = () => {
         };
 
         return (<div className='flex flex-col gap-4'>
-            <div className={`${orientation === "V" ? 'grid grid-cols-2 gap-x-4 gap-y-6' :
+            <div className={`${orientation === "V" ? 'grid grid-cols-2 lg:gap-x-2 lg:gap-y-3 gap-x-2 gap-y-3' :
                 'grid grid-cols-1 gap-4 p-4 '}`}>
                 {currentItems.map((voiture, index) => <Card voiture={voiture} orientation={orientation} key={index} />)}
             </div>
@@ -387,7 +387,7 @@ const Products = () => {
     useOnHoverOutside(dropdownRef2, closeHoverMenu2); // Call the hook
 
     const colorFilters = () => {
-        return (<div className='bg-green-500 text-white px-3 py-2 text-lg rounded flex justify-between items-center'><span>Active</span><span className='border py-1 px-3 border-transparent rounded-full hover:border-white cursor-pointer' title='Remove' onClick={
+        return (<div className='bg-green-500 text-white px-2 lg:px-3 py-1 lg:texte-base text-sm rounded flex justify-between items-center'><span>Active</span><span className='border py-1 px-3 border-transparent rounded-full hover:border-white cursor-pointer' title='Remove' onClick={
             () => {
                 setFiltreCouleurs([])
             }}>x</span></div>)
@@ -435,16 +435,16 @@ const Products = () => {
             <TopBar light={true} />
             <Header />
             <Title page={"Товары"} />
-            <div className='flex gap-8 bg-blue-500 justify-center py-4 text-lg text-white mb-4 items-center'>
-                <div>Покупаете впервые? Заранее поинтересуйтесь и получите финансирование!</div>
-                <button className='bg-red-600 py-3 px-4 font-medium'>Применить сейчас</button>
+            <div className='flex gap-4 bg-blue-500 justify-center p-2 lg:p-3 text-lg text-white mb-4 items-center'>
+                <div className='lg:text-base md:text-sm text-[0.65rem]'>Покупаете впервые? Заранее поинтересуйтесь и получите финансирование!</div>
+                <div><button className='bg-red-600 py-1 px-2 font-medium rounded text-[0.65rem] md:text-sm'>Применить сейчас</button></div>
             </div>
-            <div className='grid grid-cols-4 gap-2 px-16 py-12'>
+            <div className='flex flex-wrap-reverse justify-between gap-2 px-6 md:px-12 lg:px-16 py-4'>
                 {/* Filters */}
-                <div className='col-span-1 font-serif flex flex-col gap-8'>
-                    <div className='text-xl font-medium'>ФИЛЬТР ПО ЦВЕТУ</div>
+                <div className='font-serif flex flex-col gap-4'>
+                    <div className='md:text-sm text-[0.6rem] lg:text-base font-medium'>ФИЛЬТР ПО ЦВЕТУ</div>
                     {filtreCouleurs.length > 0 && colorFilters()}
-                    <ul className='list-none flex flex-col gap-4'>
+                    <ul className='list-none flex flex-col text-sm gap-2'>
                         {colors.map((c, index) => {
                             return <li key={index} onClick={
                                 () => {
@@ -459,39 +459,39 @@ const Products = () => {
                                     setFiltreCouleurs(val)
                                 }
                             } className='flex gap-2 items-center justify-end cursor-pointer border-b pb-4 hover:text-blue-500'>
-                                <span className={`'basis-1/6 border p-4 rounded-lg max-h-12 max-w-12 ${filtreCouleurs.includes(c.color) ? "ring-1" : ""} bg-${c.color !== ("white" && "black") ? c.color : c.color === "black" ? "black " : "white "}-700`}></span>
+                                <span className={`basis-1/6 border p-2 rounded-lg max-h-12 max-w-12 ${filtreCouleurs.includes(c.color) ? "ring-1" : ""} bg-${c.color !== ("white" && "black") ? c.color : c.color === "black" ? "black " : "white "}-700`}></span>
                                 <span className='basis-2/3 font-normal capitalize'>{c.color}</span>
                                 <span className='basis-1/6 text-blue-500'>({c.total})</span>
                             </li>
                         })}
                     </ul>
-                    <div className='text-xl font-medium'>ФИЛЬТР ПО ЦЕНЕ</div>
+                    <div className='md:text-sm text-[0.6rem] lg:text-base font-medium'>ФИЛЬТР ПО ЦЕНЕ</div>
                     <div className='flex flex-col gap-4'>
                         <input type="range" min={min} max={max}
                             onChange={e => setRangeValue(e.target.value)}
                             defaultValue={max} />
-                        <div className='flex gap-2 items-center text-base'><button className='p-2 text-white bg-red-700 hover:bg-blue-500 rounded'>ФИЛЬТР</button><span className='text-blue-500'>Цены: ${min}  - ${rangeValue}</span></div>
+                        <div className='flex gap-2 items-center text-sm'><button className='p-2 text-white bg-red-700 hover:bg-blue-500 rounded'>ФИЛЬТР</button><span className='text-blue-500'>Цены: ${min}  - ${rangeValue}</span></div>
                     </div>
                 </div>
                 {/* Products list */}
-                <div className='flex flex-col gap-12 col-span-3'>
+                <div className='flex-1 flex flex-col gap-4 col-span-3'>
                     <div className='flex gap-1 items-center'>
-                        <div className='flex flex-col text-sm relative' ref={dropdownRef}>
-                            <button className='grid grid-cols-5 divide-x-2 border' onMouseOver={() => setMenuDropDownOpen(true)}>
-                                <span className='px-3 py-2 col-span-4'>Sort by <span className='font-semibold'>{textTri}</span> Order</span><span className='px-3 py-2'><FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /></span>
+                        <div className='flex flex-col lg:text-sm text-[0.5rem] relative' ref={dropdownRef}>
+                            <button className='flex items-center border' onMouseOver={() => setMenuDropDownOpen(true)}>
+                                <span className='lg:px-2 px-1 md:py-2 py-1 flex-1'>Sort by <span className='font-semibold'>{textTri}</span> Order</span><span className='px-1 py-2'><FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /></span>
                             </button>
-                            <div className='absolute top-9 z-10 bg-white'>{isMenuDropDownOpen && <Menu2 onClickCallback={handleSort} />}</div>
+                            <div className='absolute md:top-7 lg:top-9 top-10 z-10 bg-white'>{isMenuDropDownOpen && <Menu2 onClickCallback={handleSort} />}</div>
                         </div>
-                        <button className='px-3 py-2 border text-sm hover:bg-slate-200' onClick={() => setAscendingSort(!ascendingSort)}>{ascendingSort ? <FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /> : <FontAwesomeIcon icon={faArrowUp} className="" size={"xs"} />}</button>
-                        <div className='flex flex-col text-sm relative' ref={dropdownRef2}>
-                            <button className='grid grid-cols-5 divide-x-2 border' onMouseOver={() => setMenuDropDownOpen2(true)}>
-                                <div className='px-3 py-2 col-span-4'>Show <span className='font-semibold'>{sizePagination} Products</span></div><span className='px-3 py-2'><FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /></span>
+                        <button className='px-3 py-2 border lg:text-sm text-[0.5rem] hover:bg-slate-200' onClick={() => setAscendingSort(!ascendingSort)}>{ascendingSort ? <FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /> : <FontAwesomeIcon icon={faArrowUp} className="" size={"xs"} />}</button>
+                        <div className='flex flex-col lg:text-sm text-[0.5rem] relative' ref={dropdownRef2}>
+                            <button className='flex items-center border' onMouseOver={() => setMenuDropDownOpen2(true)}>
+                                <div className='md:px-3 px-1 py-1 col-span-4'>Show <span className='font-semibold'>{sizePagination} Products</span></div><span className='px-3 py-2'><FontAwesomeIcon icon={faArrowDown} className="" size={"xs"} /></span>
                             </button>
                             <div className='absolute top-9 z-10 bg-white'>{isMenuDropDownOpen2 && <SortMenu onClickCallback={handlePage} />}</div>
                         </div>
-                        <div className='grid grid-cols-2 border divide-x text-sm'>
-                            <button className={`${orientation === "V" ? 'px-3 py-2 hover:bg-slate-200 ring-1' : 'px-3 py-2 hover:bg-slate-200'}`} onClick={() => setOrientation("V")}><FontAwesomeIcon icon={faColumns} className="" size={"xs"} /></button>
-                            <button className={`${orientation === "H" ? 'px-3 py-2 hover:bg-slate-200 ring-1' : 'px-3 py-2 hover:bg-slate-200'}`} onClick={() => setOrientation("H")}><FontAwesomeIcon icon={faList} className="" size={"xs"} /></button>
+                        <div className='grid grid-cols-2 border divide-x lg:text-sm text-[0.5rem]'>
+                            <button className={`${orientation === "V" ? 'px-1 md:px-3 py-2 hover:bg-slate-200 ring-1' : 'px-1 md:px-3 py-2 hover:bg-slate-200'}`} onClick={() => setOrientation("V")}><FontAwesomeIcon icon={faColumns} className="" size={"xs"} /></button>
+                            <button className={`${orientation === "H" ? 'px-1 py-2 md:px-3 hover:bg-slate-200 ring-1' : 'px-1 md:px-3 py-2 hover:bg-slate-200'}`} onClick={() => setOrientation("H")}><FontAwesomeIcon icon={faList} className="" size={"xs"} /></button>
                         </div>
                     </div>
                     {/* Cards */}

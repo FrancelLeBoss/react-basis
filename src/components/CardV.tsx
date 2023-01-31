@@ -24,18 +24,18 @@ const CardV = ({ voiture }: props) => {
                 <div className='text-2xl text-white font-serif'>{voiture.title}</div>
                 <div className='text-xl text-white font-serif font-medium'>{voiture?.acceleration}</div>
             </div>
-            <div className="grid grid-rows-3 shadow">
-                <img src={voiture.img} className="w-full h-auto row-span-2 row-start-1" alt={"Voiture " + voiture.title} />
-                <div className='flex flex-col px-6 py-2 gap-2 bg-blue-200'>
-                    <div className='text-xl font-serif font-semibold'>{voiture.title}</div>
-                    <ul className='flex items-center gap-2 list-none'>
-                        <li className='text-base font-sans font-medium'>{voiture.power + " mi"}</li>
-                        <li className='text-base font-sans font-medium'>{voiture.automatic ? "Automatic" : "Non automatic"}</li>
-                        <li className='text-base font-sans font-medium'>{voiture.electric ? "Electrical" : "Non Electrical"}</li>
-                        <li className='text-base font-sans font-medium capitalize'>{voiture.color}</li>
+            <div className="flex flex-col flex-wrap shadow justify-center">
+                <div className='basis-2/3'><img src={voiture.img} className="" alt={"Voiture " + voiture.title} /></div>
+                <div className='basis-1/3 flex flex-col px-3 lg:px-6 py-1 lg:gap-2 gap-1 bg-blue-200'>
+                    <div className='lg:text-xl text-base font-serif font-semibold'>{voiture.title}</div>
+                    <ul className='flex items-center gap-1 flex-wrap list-none'>
+                        <li className='lg:text-base text-sm font-sans font-light'>{voiture.power + " mi"}</li>
+                        <li className='lg:text-base text-sm  font-sans font-light'>{voiture.automatic ? "Automatic" : "Non automatic"}</li>
+                        <li className='lg:text-base text-sm  font-sans font-light'>{voiture.electric ? "Electrical" : "Non Electrical"}</li>
+                        <li className='lg:text-base text-sm  font-sans font-light capitalize'>{voiture.color}</li>
                     </ul>
                     <hr />
-                    <div className='text-xl font-medium font-mono'>Price : <span className='text-red-600 font-sans text-2xl'>{"$" + voiture.price}</span></div>
+                    <div className='lg:text-base text-sm font-medium font-mono'>Price : <span className='text-red-600 font-sans text-base lg:text-xl'>{"$" + voiture.price}</span></div>
                 </div>
             </div>
         </div>

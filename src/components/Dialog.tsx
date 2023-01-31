@@ -46,20 +46,20 @@ export default function MyModal(props: DialogProps) {
                 <Dialog.Panel className="w-full max-w-md transform  overflow-hidden rounded bg-white text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-xl font-medium leading-6 text-white bg-blue-900 pb-4 border-b capitalize"
+                    className="text-base font-medium leading-6 text-white bg-blue-900 pb-2 border-b capitalize"
                   >
-                    <div className='flex justify-between items-center px-6 pt-4 pb-2'>
+                    <div className='flex justify-between items-center px-3 pt-2 pb-1'>
                       {props.title || "Title"}
-                      <span className='py-1 px-2 border rounded-full cursor-pointer' onClick={() => props.onClose()}>X</span>
+                      <span className='text-sm cursor-pointer' onClick={() => props.onClose()}>X</span>
                     </div>
                   </Dialog.Title>
-                  <div className="mt-2 px-6 pt-2 pb-6">
+                  <div className="mt-2 px-3 pb-3">
                     {props.children}
                   </div>
                   <hr />
-                  <div className='mt-2 px pt-2 pb-6 mx-6 flex justify-end items-center gap-2'>
-                    <button className='py-2 px-3 font-medium bg-red-600 text-white hover:bg-blue-600 rounded border-transparent  ' onClick={() => props.onClose()}>Отмена</button>
-                    <button className='py-2 px-3 font-medium bg-blue-900 text-white hover:bg-blue-600 rounded border-transparent  ' onClick={() => props.onSubmit()}>послать</button>
+                  <div className='mt-2 px pt-2 pb-4 mx-6 flex justify-end items-center gap-2'>
+                    <button className='py-2 px-3 text-sm font-medium bg-red-600 text-white hover:bg-blue-600 rounded border-transparent  ' onClick={() => props.onClose()}>Отмена</button>
+                    <button className='py-2 px-3 text-sm font-medium bg-blue-900 text-white hover:bg-blue-600 rounded border-transparent  ' onClick={() => props.onSubmit()}>послать</button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

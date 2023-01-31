@@ -8,12 +8,17 @@ import Bloc2 from '../components/Bloc2'
 import Footer from '../components/Footer'
 // rafce pour avoir rapidement ce code
 const Home = () => {
-    return (<div className='relative'>
+    return (<div className='relative w-full'>
         <TopBar light={false} />
         <Header />
         <Banner />
-        <div className="absolute top-[40rem] right-60"><SearchBar /></div>
-        <div className='bg-white pt-52'><Bloc /></div>
+        <div className="absolute 
+        top-[14%] left-[5%] right-[5%]
+        md:top-[19%]
+        lg:top-[22%]
+        xl:top-[24%]
+        "><SearchBar /></div>
+        <div className='bg-white md:pt-[13%] pt-[15%]'><Bloc /></div>
         <Bloc2 />
         <Footer />
     </div>
