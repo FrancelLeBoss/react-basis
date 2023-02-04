@@ -10,17 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown, faArrowUp, faColumns, faList, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import Card from '../components/Card'
 import ReactPaginate from 'react-paginate'
-//import axios from "axios";
+import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux'
+import { setVoituresData } from '../feature/voituresSlice'
+import { setUsersData } from '../feature/usersSlice'
 
-// const options = {
-//     method: 'GET',
-//     url: 'https://car-data.p.rapidapi.com/cars',
-//     params: { limit: '10', page: '0' },
-//     headers: {
-//         'X-RapidAPI-Key': '6aae24c6c6msh547de85a80bb821p1051f8jsn75324878c16f',
-//         'X-RapidAPI-Host': 'car-data.p.rapidapi.com'
-//     }
-// };
 
 interface color {
     color: string
@@ -50,6 +44,9 @@ const Products = () => {
 
     const dropdownRef = useRef(null); // Create a reference for dropdown container
     const dropdownRef2 = useRef(null); // Create a reference for dropdown container
+    const dispatch = useDispatch()
+    const data = useSelector((state: any) => state.voitures.voitures)
+    const users = useSelector((state: any) => state.users.data)
     const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
     const [isMenuDropDownOpen2, setMenuDropDownOpen2] = useState(false);
     //Grid's orientation, we have V for vertical cards and H for horizontal cards, then for lists
@@ -57,7 +54,6 @@ const Products = () => {
     const [ascendingSort, setAscendingSort] = useState(true);
     const [sortingCriteria, setSortingCriteria] = useState('id')
     const [textTri, setTextTri] = useState('Default')
-
     const [sizePagination, setSizePagination] = useState(6)
     const [itemOffset, setItemOffset] = useState(0);
     const voitures = [
@@ -266,6 +262,15 @@ const Products = () => {
     const [min, setMin] = useState(0)
     const [max, setMax] = useState(50000)
     const [rangeValue, setRangeValue] = useState<number | any>(min)
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/voitures")
+            .then((res) => dispatch(setVoituresData(res.data)));
+        axios
+            .get("http://localhost:5000/users")
+            .then((res) => dispatch(setUsersData(res.data)));
+    }, []);
+
     useEffect(() => {
         filterColor(filtreCouleurs)
         // axios.request(options).then(function (response) {

@@ -1,0 +1,123 @@
+{
+  "voitures": [
+    {
+      "id": 1,
+      "title": "Audi RS7",
+      "electric": true,
+      "automatic": true,
+      "color": "black",
+      "price": 42800,
+      "power": 358,
+      "img": "/audi.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 2,
+      "title": "BMW M4",
+      "electric": false,
+      "automatic": true,
+      "color": "white",
+      "price": 50000,
+      "power": 514,
+      "img": "/bmw.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 3,
+      "title": "Mercedes C63",
+      "electric": false,
+      "automatic": false,
+      "color": "gray",
+      "price": 20000,
+      "power": 189,
+      "img": "/Mercedes.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 4,
+      "title": "Audi RS7",
+      "electric": true,
+      "automatic": true,
+      "color": "black",
+      "price": 42800,
+      "power": 358,
+      "img": "/audi.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 5,
+      "title": "Volkswagen  Passat",
+      "electric": false,
+      "automatic": true,
+      "color": "red",
+      "price": 30000,
+      "power": 289,
+      "img": "/volw.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 8,
+      "title": "BMW M4",
+      "electric": false,
+      "automatic": true,
+      "color": "white",
+      "price": 50000,
+      "power": 514,
+      "img": "/bmw.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 6,
+      "title": "Mercedes C63",
+      "electric": false,
+      "automatic": false,
+      "color": "gray",
+      "price": 20000,
+      "power": 189,
+      "img": "/Mercedes.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    },
+    {
+      "id": 7,
+      "title": "Volkswagen  Passat",
+      "electric": false,
+      "automatic": true,
+      "color": "red",
+      "price": 30000,
+      "power": 289,
+      "img": "/volw.png",
+      "acceleration": "0-60 mph in just 3.1 seconds",
+      "desc": "Unparalleled traction and control sit amet purus gravida quis. Porta nibh venenatis ras sed. Vestibulum rhoncus pellentes elit ullamcorper est dignissim cras."
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nom": "Francel",
+      "prenom": "Cabrel",
+      "email": "cabrelprowo@gmail.com",
+      "password": "francel1234"
+    },
+    {
+      "nom": "Brice",
+      "prenom": "Armel",
+      "email": "briceprowo@gmail.com",
+      "password": "brice",
+      "id": 2
+    },
+    {
+      "nom": "Arthur",
+      "prenom": "nomboh",
+      "email": "arthurnomboh@gmail.com",
+      "password": "1234",
+      "id": 3
+    }
+  ]
+}
